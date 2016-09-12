@@ -1,15 +1,13 @@
 <?php
 
+namespace cahuk\checking\components;
+
 /**
  * Class ListChecking
  * used for the chain checks
  *
- * @package checking\components
+ * @package cahuk\checking\components
  */
-
-namespace checking\components;
-
-
 class ListChecking extends ACheck\AbstractChecking
 {
     /**

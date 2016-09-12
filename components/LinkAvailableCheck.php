@@ -1,16 +1,25 @@
 <?php
 
+namespace cahuk\checking\components;
+
 /**
  * Class LinkAvailableCheck
  *
- * @package checking\components
+ * @package cahuk\checking\components
  */
-
-namespace checking\components;
-
-
 class LinkAvailableCheck extends ACheck\AbstractSpecificCheck
 {
+    /** @var  array */
+    protected $headers = [];
+
+    /**
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
     /**
      * @return boolean
      */
@@ -27,9 +36,9 @@ class LinkAvailableCheck extends ACheck\AbstractSpecificCheck
      */
     protected function checkLinkStatus($url)
     {
-        $headers = get_headers($url);
+        $this->headers = get_headers($url, 1);
         $linkStatus = false;
-        if(in_array("HTTP/1.1 200 OK", $headers) || in_array("HTTP/1.0 200 OK", $headers)){
+        if(in_array("HTTP/1.1 200 OK", $this->headers) || in_array("HTTP/1.0 200 OK", $this->headers)){
             $linkStatus = true;
         }
 

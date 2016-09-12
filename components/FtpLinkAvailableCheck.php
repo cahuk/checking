@@ -1,14 +1,12 @@
 <?php
 
+namespace cahuk\checking\components;
+
 /**
  * Class FtpLinkAvailableCheck
  *
- * @package checking\components
+ * @package cahuk\checking\components
  */
-
-namespace checking\components;
-
-
 class FtpLinkAvailableCheck extends ACheck\AbstractSpecificCheck
 {
     protected $port = 21;

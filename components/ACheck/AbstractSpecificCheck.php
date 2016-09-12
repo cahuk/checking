@@ -1,14 +1,12 @@
 <?php
 
+namespace cahuk\checking\components\ACheck;
+
 /**
  * Class AbstractSpecificCheck
  *
- * @package checking\ACheck\components
+ * @package cahuk\checking\ACheck\components
  */
-
-namespace checking\components\ACheck;
-
-
 abstract class AbstractSpecificCheck extends AbstractChecking
 {
     /**

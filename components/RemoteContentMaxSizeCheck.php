@@ -3,35 +3,27 @@
 namespace cahuk\checking\components;
 
 /**
- * Class LinkAvailableCheck
- *
+ * Class RemoteContentMaxSizeCheck
  * @package cahuk\checking\components
  */
-class FileMaxSizeCheck extends ACheck\AbstractSpecificCheck
+class RemoteContentMaxSizeCheck extends LinkAvailableCheck
 {
     private $maxSize = 2621440; // 2.5 * 1024 * 1024 = 2621440 Kb. Max size of file
+
 
     /**
      * @return boolean
      */
     protected function checking()
     {
-        $filePath = $this->getDataCheck();
+        /*$filePath = $this->getDataCheck();
         $file = new \SplFileInfo($filePath);
         if($file->isFile() && $file->getSize() <= $this->getMaxSize()) {
             return true;
         } else {
             return false;
-        }
+        }*/
 
-    }
-
-    /**
-     * @return int
-     */
-    public function getMaxSize()
-    {
-        return $this->maxSize;
     }
 
     /**
@@ -41,5 +33,4 @@ class FileMaxSizeCheck extends ACheck\AbstractSpecificCheck
     {
         $this->maxSize = $maxSize;
     }
-
 }

@@ -2,11 +2,11 @@
 
 require_once '../bootstrap.php';
 
-use checking\components\LinkAvailableCheck;
-use checking\components\FileMaxSizeCheck;
-use checking\components\FileExtensionCheck;
-use checking\components\ListChecking;
-use checking\components\FtpLinkAvailableCheck;
+use cahuk\checking\components\LinkAvailableCheck;
+use cahuk\checking\components\FileMaxSizeCheck;
+use cahuk\checking\components\FileExtensionCheck;
+use cahuk\checking\components\ListChecking;
+use cahuk\checking\components\FtpLinkAvailableCheck;
 
 
 class CheckTest extends PHPUnit_Framework_TestCase

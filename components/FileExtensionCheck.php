@@ -1,14 +1,12 @@
 <?php
 
+namespace cahuk\checking\components;
+
 /**
  * Class AbstractSpecificCheck
  *
- * @package checking\components
+ * @package cahuk\checking\components
  */
-
-namespace checking\components;
-
-
 class FileExtensionCheck extends ACheck\AbstractSpecificCheck
 {
     protected $extension = [];

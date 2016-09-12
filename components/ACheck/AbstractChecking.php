@@ -1,22 +1,22 @@
 <?php
 
+namespace cahuk\checking\components\ACheck;
+
 /**
  * Class AbstractChecked
  *
  * For use you mast realize method checking
  * thereafter, you can invoke a method check() in the context of the program
  *
- * @package checking\ACheck
+ * @package cahuk\checking\ACheck
  */
-
-namespace checking\components\ACheck;
-
-
 abstract class AbstractChecking
 {
     protected $status = false;
     protected $returnVal = null;
     protected $dataCheck = null;
+    /** @var  \Exception */
+    protected $throwException;
 
     /**
      * @return bool
@@ -34,6 +34,10 @@ abstract class AbstractChecking
         $result = $this->status = $this->checking();
 
         if($result==false && $this->returnVal !== null) {
+            if($this->throwException) {
+                throw $this->throwException;
+            }
+
             $result = $this->getReturnVal();
         }
 
@@ -68,4 +72,13 @@ abstract class AbstractChecking
      * @return boolean
      */
     abstract protected function checking();
+
+    /**
+     * @param \Exception $throwException
+     */
+    public function setThrowException(\Exception $throwException)
+    {
+        $this->throwException = $throwException;
+        return $this;
+    }
 }

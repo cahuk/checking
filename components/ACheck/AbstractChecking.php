@@ -33,14 +33,15 @@ abstract class AbstractChecking
     {
         $result = $this->status = $this->checking();
 
-        if($result==false && $this->returnVal !== null) {
+        if($result==false) {
+            if($this->returnVal !== null) {
+                $result = $this->getReturnVal();
+            }
+
             if($this->throwException) {
                 throw $this->throwException;
             }
-
-            $result = $this->getReturnVal();
         }
-
         return $result;
     }
 

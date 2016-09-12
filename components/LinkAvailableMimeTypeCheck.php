@@ -8,8 +8,10 @@ namespace cahuk\checking\components;
  */
 class LinkAvailableMimeTypeCheck extends LinkAvailableCheck
 {
+    /** images mime type name */
     const MIME_TYPES_IMAGES = 'images';
 
+    /** @var array mime types */
     public static $mimeTypes = [
         self::MIME_TYPES_IMAGES => [
             'image/jpeg',
@@ -22,17 +24,15 @@ class LinkAvailableMimeTypeCheck extends LinkAvailableCheck
     protected $allowMimeTypes = [];
 
 
-    public function checking()
+    protected function checking()
     {
         if($res = parent::checking()) {
-            /*in_array("HTTP/1.1 200 OK", $this->headers) {
+            if($this->allowMimeTypes && in_array($this->headers['Content-Type'], $this->allowMimeTypes)) {
+                return true;
+            }
 
-            }*/
-        echo "<pre>";
-            var_dump($this->headers);
-            echo "</pre>";
         }
-
+        return false;
     }
 
     /**

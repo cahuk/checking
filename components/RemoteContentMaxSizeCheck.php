@@ -8,6 +8,7 @@ namespace cahuk\checking\components;
  */
 class RemoteContentMaxSizeCheck extends LinkAvailableCheck
 {
+    /** @var int  */
     private $maxSize = 2621440; // 2.5 * 1024 * 1024 = 2621440 Kb. Max size of file
 
 
@@ -16,13 +17,13 @@ class RemoteContentMaxSizeCheck extends LinkAvailableCheck
      */
     protected function checking()
     {
-        /*$filePath = $this->getDataCheck();
-        $file = new \SplFileInfo($filePath);
-        if($file->isFile() && $file->getSize() <= $this->getMaxSize()) {
-            return true;
-        } else {
-            return false;
-        }*/
+        if($res = parent::checking()) {
+            if($this->headers['Content-Length'] <=  $this->maxSize) {
+                return true;
+            }
+
+        }
+        return false;
 
     }
 
